@@ -2,6 +2,9 @@
 Project Django (Essential)
 
 [![Build Status](https://travis-ci.org/Al1rios/pwdj.svg?branch=master)](https://travis-ci.org/Al1rios/pwdj)
+[![Updates](https://pyup.io/repos/github/Al1rios/pwdj/shield.svg)](https://pyup.io/repos/github/Al1rios/pwdj/)
+[![Python 3](https://pyup.io/repos/github/Al1rios/pwdj/python-3-shield.svg)](https://pyup.io/repos/github/Al1rios/pwdj/)
+
 
 Para instalar ambiente de desenvolvimento:
 

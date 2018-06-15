@@ -1,0 +1,1 @@
+web: gunicorn pwdj.wsgi --log-file -

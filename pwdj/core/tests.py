@@ -1,3 +1,5 @@
+import pytest
+
 from pwdj.django_assertions import dj_assert_contains
 
 
@@ -6,6 +8,13 @@ def test_status_code(client):
     return 200 == response.status_code
 
 
-def test_home(client):
+@pytest.mark.parametrize(
+    'content', [
+        'Project Work Django',
+        'ali.rios@gmail.com',
+        '+55 31 971-906677',
+    ]
+)
+def test_home(client, content):
     response = client.get('/')
-    dj_assert_contains(response, 'Olá Mundo')
+    dj_assert_contains(response, content)

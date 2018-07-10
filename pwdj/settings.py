@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'collectfast',
     'django.contrib.staticfiles',
     'pwdj.core',
+    'pwdj.galeria',
 ]
 
 MIDDLEWARE = [

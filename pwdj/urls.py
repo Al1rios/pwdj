@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from pwdj.core import views as core_views
 
@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core_views.home),
     path('contato/', core_views.contact),
+    path('galeria/', include('pwdj.galeria.urls')),
 ]

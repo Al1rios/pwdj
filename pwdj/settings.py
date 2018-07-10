@@ -126,6 +126,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 COLLECTFAST_ENABLED = False
 
+
 # STORAGE CONFIGURATION IN S3 AWS
 # ------------------------------------------------------------------------------
 # Uploaded Media Files

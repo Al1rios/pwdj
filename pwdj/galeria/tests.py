@@ -21,7 +21,7 @@ def test_status_code(resp):
 @pytest.mark.parametrize(
     'content', [
         'TechPortfolio_Twitter_DeveloperHotfix-816x459_v1-1.jpg?w=816',
-        'We need people like you', '$ 400,00 ',
+        'We need people like you', '400,00',
     ]
 )
 def test_index_content(resp, content):

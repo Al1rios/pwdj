@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 
 from pwdj.django_assertions import dj_assert_contains
+from pwdj.galeria.models import Model
 
 
 def test_app_link_in_home(client):
@@ -10,7 +11,18 @@ def test_app_link_in_home(client):
 
 
 @pytest.fixture
-def resp(client):
+def galeria(db):
+    model = Model(
+        titulo='Social media now takes',
+        preco='400.00',
+        descricao='We need people like you, and we need people not like')
+
+    model.save()
+    return [model]
+
+
+@pytest.fixture
+def resp(client, galeria):
     return client.get(reverse('galeria:index'))
 
 

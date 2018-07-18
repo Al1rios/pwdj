@@ -5,9 +5,11 @@
 	<div class="row">
         {% for imagen in galeria %}
         <div class="col">
-            <h1 class="text-center mt-4 mb-3">Galeria de Site</h1>
+            <h1 class="text-center mt-4 mb-3">Galeria do Site</h1>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="http://i2.wp.com/techportfolio.net/wp-content/uploads/2016/08/TechPortfolio_Twitter_DeveloperHotfix-816x459_v1-1.jpg?w=816" alt="{{ model.titulo }}">
+                <img class="card-img-top"
+                     src="{{ imagen.foto.url }}"
+                     alt="{{ imagen.titulo }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ imagen.titulo }}-{{ imagen.preco }} </h5>
                     <p class="card-text">{{ imagen.descricao }}</p>

@@ -1,4 +1,7 @@
+from os import path
+
 import pytest
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 
 from pwdj.django_assertions import dj_assert_contains
@@ -10,11 +13,18 @@ def test_app_link_in_home(client):
     dj_assert_contains(response, reverse('galeria:index'))
 
 
+IMAGE_PATH = path.dirname(__file__)
+IMAGE_PATH = path.join(IMAGE_PATH, 'intel.jpg')
+
+
 @pytest.fixture
 def galeria(db):
+    image = SimpleUploadedFile(
+        name='intel.jpg', content=open(IMAGE_PATH, 'rb').read(), content_type='image/jpeg')
     model = Model(
         titulo='Social media now takes',
         preco='400.00',
+        foto=image,
         descricao='We need people like you, and we need people not like')
 
     model.save()
@@ -32,9 +42,15 @@ def test_status_code(resp):
 
 @pytest.mark.parametrize(
     'content', [
+        '400,00',
         'TechPortfolio_Twitter_DeveloperHotfix-816x459_v1-1.jpg?w=816',
-        'We need people like you', '400,00',
+        'We need people like you',
     ]
 )
 def test_index_content(resp, content):
     dj_assert_contains(resp, content)
+
+
+def test_image_url(resp, galeria):
+    model = galeria[0]
+    dj_assert_contains(resp, model.foto.url)

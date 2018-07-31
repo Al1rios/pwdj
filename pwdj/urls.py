@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
+
 
 from pwdj.core import views as core_views
 
@@ -25,3 +26,9 @@ urlpatterns = [
     path('contato/', core_views.contact),
     path('galeria/', include('pwdj.galeria.urls')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.append(
+        path('__debug__/', include(debug_toolbar.urls))
+    )

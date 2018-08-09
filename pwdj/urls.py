@@ -25,6 +25,7 @@ urlpatterns = [
     path('', core_views.home),
     path('contato/', core_views.contact),
     path('galeria/', include('pwdj.galeria.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

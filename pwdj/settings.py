@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'collectfast',
     'django.contrib.staticfiles',
-    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +57,7 @@ MIDDLEWARE = [
 
 if DEBUG:
     # Django Debug toolbar config
+    INSTALLED_APPS.append('debug_toolbar',)
     MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
     INTERNAL_IPS = '127.0.0.1'
 
@@ -111,6 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'core.User'
+
+LOGIN_REDIRECT_URL = LOGOUT_REDIRECT_URL = '/'
 
 
 # Internationalization

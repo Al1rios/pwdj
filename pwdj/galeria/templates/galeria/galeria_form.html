@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}form de Galeria{% endblock title %}
+{% block content %}
+<div class="container">
+	<div class="row">
+        <div class="col">
+            <h1 class="text-center mt-4 mb-3">Insira nova Imagen</h1>
+
+                <form method="get">
+                    <div class="form-group">
+                        <label for="tituloInput">
+                            Titulo:
+                        </label>
+                        <input type="text" class="form-control" name="titulo" id="tituloInput">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precoInput">
+                            Preço:
+                        </label>
+                        <input type="number" class="form-control" name="preco" id="precoInput" min="0.01" step="0.01"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="descricaoInput">
+                            Descrição:
+                        </label>
+                        <textarea name="descricao" id="descricaoInput" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Salvar</button>
+
+                </form>
+            </div>
+        </div>
+</div>
+{% endblock content %}

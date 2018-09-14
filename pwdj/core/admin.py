@@ -19,7 +19,7 @@ from django.urls import path, reverse
 from django.utils.html import escape
 from django.utils.translation import gettext, gettext_lazy as _
 
-from pwdj.core.models import User
+from pwdj.core.models import User, Perfil
 
 
 @admin.register(User)
@@ -189,3 +189,8 @@ class UserAdmin(admin.ModelAdmin):
             request.POST = request.POST.copy()
             request.POST['_continue'] = 1
         return super().response_add(request, obj, post_url_continue)
+
+
+@admin.register(Perfil)
+class PerfilAdmin(admin.ModelAdmin):
+    pass

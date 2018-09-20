@@ -3,9 +3,12 @@
 {% block content %}
 <div class="container">
 	<div class="row">
-        {% for imagen in galeria %}
         <div class="col">
-            <h1 class="text-center mt-4 mb-3">Galeria do Site</h1>
+        {% for categoria in categorias %}
+            <h1 class="text-center mt-4 mb-3">{{ categoria.titulo }}</h1>
+            <div class="row">
+                {% for imagen in categoria.galeria %}
+            <div class="col">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top"
                      src="{{ imagen.foto.url }}"
@@ -20,5 +23,6 @@
         {% endfor %}
 
     </div>
+        {% endfor %}
 </div>
 {% endblock content %}

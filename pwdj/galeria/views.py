@@ -3,14 +3,14 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse
 
+from pwdj.galeria.facade import buscar_categorias_com_galeria
 from pwdj.galeria.forms import ModelForm
-from pwdj.galeria.models import Model
 
 
 def index(request):
-    query_set = Model.objects.order_by('titulo')
+    query_set = buscar_categorias_com_galeria()
     ctx = {
-        'galeria': list(query_set)
+        'categorias': list(query_set)
 
     }
     return render(request, 'galeria/index.html', context=ctx)

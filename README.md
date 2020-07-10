@@ -23,4 +23,4 @@ Confira se o código está de acordo com a PEP8:
 
 flake8 .
 
-Documentação incompleta. actualização do project.
+2020/07/10
